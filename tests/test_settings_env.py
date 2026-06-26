@@ -1,4 +1,3 @@
-
 from recall_py.settings import AppSettings
 
 

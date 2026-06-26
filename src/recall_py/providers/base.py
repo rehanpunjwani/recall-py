@@ -6,8 +6,7 @@ from collections.abc import AsyncIterator
 
 class LLMProvider(ABC):
     @abstractmethod
-    async def embed(self, text: str) -> list[float]:
-        ...
+    async def embed(self, text: str) -> list[float]: ...
 
     @abstractmethod
     async def chat(
@@ -15,8 +14,7 @@ class LLMProvider(ABC):
         messages: list[dict[str, str]],
         *,
         max_tokens: int | None = None,
-    ) -> str:
-        ...
+    ) -> str: ...
 
     async def chat_stream(
         self,
@@ -27,5 +25,4 @@ class LLMProvider(ABC):
         yield await self.chat(messages, max_tokens=max_tokens)
 
     @abstractmethod
-    async def health(self) -> bool:
-        ...
+    async def health(self) -> bool: ...

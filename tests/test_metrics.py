@@ -20,10 +20,7 @@ def test_schema_includes_usage_events(tmp_path, monkeypatch):
     settings = AppSettings.load()
     conn = open_connection(settings)
     assert get_schema_version(conn) == CURRENT_SCHEMA_VERSION
-    tables = {
-        row[0]
-        for row in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
-    }
+    tables = {row[0] for row in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
     assert "usage_events" in tables
 
 
@@ -37,7 +34,7 @@ def test_record_local_draft_and_summary(tmp_path, monkeypatch):
         conn,
         thread_id=None,
         provider="test",
-            query="What is RecallPy?",
+        query="What is RecallPy?",
         context="[abc]\nRecallPy saves tokens.",
         system_prompt="You are helpful.",
         draft="RecallPy is a local cache.",
@@ -85,7 +82,7 @@ async def test_handle_query_returns_metrics(tmp_path, monkeypatch):
             conn,
             settings,
             ollama,
-        query="What is RecallPy?",
+            query="What is RecallPy?",
             thread_id=None,
             workspace_fingerprint=str(tmp_path),
         )
@@ -108,9 +105,7 @@ async def test_answer_dedup_skips_reingest_metrics(tmp_path, monkeypatch):
         patch.object(OllamaClient, "embed", AsyncMock(return_value=[0.1] * 8)),
         patch.object(OllamaClient, "chat", AsyncMock(return_value="draft")),
     ):
-        first = await handle_query(
-            conn, settings, ollama, query="same question", thread_id=None
-        )
+        first = await handle_query(conn, settings, ollama, query="same question", thread_id=None)
         second = await handle_query(
             conn,
             settings,

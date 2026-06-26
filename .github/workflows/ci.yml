@@ -7,6 +7,31 @@ on:
     branches: [main, master]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Python 3.12
+        run: uv python pin 3.12
+
+      - name: Install dependencies
+        run: uv sync --group dev
+
+      - name: Format check
+        run: uv run ruff format --check src/ tests/
+
+      - name: Lint with ruff
+        run: uv run ruff check src/ tests/
+
+      - name: Typecheck with ty
+        run: uv run ty check src/ tests/
+
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -26,12 +51,6 @@ jobs:
 
       - name: Install dependencies
         run: uv sync --group dev
-
-      - name: Lint with ruff
-        run: uv run ruff check src/ tests/
-
-      - name: Typecheck with pyright
-        run: uv run pyright src/ tests/
 
       - name: Test with pytest
         run: uv run pytest tests/ -v --tb=short

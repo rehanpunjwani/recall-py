@@ -27,10 +27,10 @@ ruff check src/ tests/
 ruff format src/ tests/
 ```
 
-Type checking with [pyright](https://github.com/microsoft/pyright):
+Type checking with [ty](https://github.com/astral-sh/ty):
 
 ```bash
-pyright src/ tests/
+ty check src/ tests/
 ```
 
 ## Project structure

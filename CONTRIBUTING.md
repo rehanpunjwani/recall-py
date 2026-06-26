@@ -18,7 +18,7 @@ Thanks for your interest! RecallPy is an open-source project and we welcome cont
    pip install -e ".[dev]"
    ruff check src/ tests/
    ruff format --check src/ tests/
-   pyright src/ tests/
+    ty check src/ tests/
    pytest
    ```
 4. **No hardcoded secrets** — API keys and tokens must be read from environment variables (see `settings.py` for examples).
