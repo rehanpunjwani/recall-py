@@ -31,8 +31,8 @@
 === "From source"
 
     ```bash
-    git clone https://github.com/rehanpunjwani/RecallPy
-    cd RecallPy
+    git clone https://github.com/rehanpunjwani/recall-py
+    cd recall-py
     python3.12 -m venv .venv
     source .venv/bin/activate
     python3.12 -m pip install -e .
