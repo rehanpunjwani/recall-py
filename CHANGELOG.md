@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.2](https://github.com/rehanpunjwani/recall-py/compare/v0.1.1...v0.1.2) (2026-06-26)
+
+
+### Bug Fixes
+
+* pass token explicitly via CLI arg, disable OIDC ([8c5d735](https://github.com/rehanpunjwani/recall-py/commit/8c5d7357eedc0f9546273acfd26fb733120a600f))
+* remove environment block to avoid OIDC token generation ([5f158e5](https://github.com/rehanpunjwani/recall-py/commit/5f158e5f0e3a3236122cb95343cbf1fdc39115d7))
+* remove OIDC publishing, use API token instead ([46fd392](https://github.com/rehanpunjwani/recall-py/commit/46fd392771da4977d260d090e6e706dadab6bf8d))
+
 ## [0.1.1](https://github.com/rehanpunjwani/recall-py/compare/v0.1.0...v0.1.1) (2026-06-26)
 
 
