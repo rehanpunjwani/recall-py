@@ -70,8 +70,7 @@ def build_agent_context_message(
             "Use `recall_py_escalate_pack` before heavy reasoning."
         )
     lines.append(
-        "After your final reply, call MCP `recall_py_ingest_turn` with role=assistant "
-        f"and thread_id={thread_id!r}."
+        f"After your final reply, call MCP `recall_py_ingest_turn` with role=assistant and thread_id={thread_id!r}."
     )
     return "\n".join(lines)
 

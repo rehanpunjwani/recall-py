@@ -194,9 +194,7 @@ async def handle_query(
     if ingest_assistant and ingest_assistant.strip():
         if not (
             tid
-            and _message_exists(
-                conn, tid, "assistant", redact_text(ingest_assistant, settings.policy.redact_patterns)
-            )
+            and _message_exists(conn, tid, "assistant", redact_text(ingest_assistant, settings.policy.redact_patterns))
         ):
             ingest_out = await ingest_turn(
                 conn,
@@ -362,9 +360,7 @@ async def answer(
         "context_pack": context_pack,
         "thread_id": tid,
         "workspace_fingerprint": fp,
-        "escalate_hint": (
-            "Use context_pack in your answer. For complex work call recall_py_escalate_pack."
-        ),
+        "escalate_hint": ("Use context_pack in your answer. For complex work call recall_py_escalate_pack."),
         "rough_query_tokens": rough_token_count(q),
         "metrics": draft_metrics,
     }

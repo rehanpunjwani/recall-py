@@ -135,9 +135,7 @@ def iter_chunks_with_embeddings(
             """,
             (thread_id,),
         ).fetchall()
-    return conn.execute(
-        "SELECT * FROM chunks WHERE embedding IS NOT NULL"
-    ).fetchall()
+    return conn.execute("SELECT * FROM chunks WHERE embedding IS NOT NULL").fetchall()
 
 
 def update_chunk_embedding(

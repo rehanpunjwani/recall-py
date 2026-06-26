@@ -28,7 +28,9 @@ def test_onboard_creates_config_and_db(isolated_home: Path, monkeypatch: pytest.
 
 def test_onboard_respects_recall_py_config(isolated_home: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     custom = isolated_home / "my.yaml"
-    custom.write_text("storage:\n  db_path: \"" + str(isolated_home / "db.sqlite").replace("\\", "/") + "\"\n", encoding="utf-8")
+    custom.write_text(
+        'storage:\n  db_path: "' + str(isolated_home / "db.sqlite").replace("\\", "/") + '"\n', encoding="utf-8"
+    )
     monkeypatch.setenv("RECALL_PY_CONFIG", str(custom))
     monkeypatch.setattr(onboard.OllamaClient, "health", AsyncMock(return_value=True))
     onboard.run(non_interactive=True, skip_pull=True)

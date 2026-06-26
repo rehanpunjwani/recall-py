@@ -16,9 +16,7 @@ def connect(db_path: Path) -> sqlite3.Connection:
 
 
 def get_schema_version(conn: sqlite3.Connection) -> int:
-    row = conn.execute(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name='schema_meta'"
-    ).fetchone()
+    row = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='schema_meta'").fetchone()
     if row is None:
         return 0
     v = conn.execute("SELECT value FROM schema_meta WHERE key = 'version'").fetchone()
@@ -31,9 +29,7 @@ def get_schema_version(conn: sqlite3.Connection) -> int:
 
 
 def _set_version(conn: sqlite3.Connection, version: int) -> None:
-    conn.execute(
-        "CREATE TABLE IF NOT EXISTS schema_meta (key TEXT PRIMARY KEY, value TEXT)"
-    )
+    conn.execute("CREATE TABLE IF NOT EXISTS schema_meta (key TEXT PRIMARY KEY, value TEXT)")
     conn.execute(
         "INSERT INTO schema_meta(key, value) VALUES('version', ?) "
         "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
@@ -59,9 +55,7 @@ def migrate(conn: sqlite3.Connection) -> None:
         _set_version(conn, version)
         conn.commit()
     if get_schema_version(conn) != CURRENT_SCHEMA_VERSION:
-        raise RuntimeError(
-            f"Unexpected schema version after migrate: expected {CURRENT_SCHEMA_VERSION}"
-        )
+        raise RuntimeError(f"Unexpected schema version after migrate: expected {CURRENT_SCHEMA_VERSION}")
 
 
 def _migrate_v1(conn: sqlite3.Connection) -> None:

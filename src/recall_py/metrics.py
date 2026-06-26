@@ -65,10 +65,7 @@ def record_local_draft(
     local_embed_tokens: int,
 ) -> dict[str, Any]:
     local_in = (
-        rough_token_count(system_prompt)
-        + rough_token_count(context)
-        + rough_token_count(query)
-        + local_embed_tokens
+        rough_token_count(system_prompt) + rough_token_count(context) + rough_token_count(query) + local_embed_tokens
     )
     local_out = rough_token_count(draft)
     cloud_est = estimate_cloud_turn_tokens(query=query, context=context)
