@@ -1,0 +1,9 @@
+# Default owners for the entire repo (request review from these on any PR)
+* @rehanpunjwani
+
+# Core source code changes require explicit review
+src/tokenguard/ @rehanpunjwani
+
+# CI/CD and configuration changes
+.github/ @rehanpunjwani
+pyproject.toml @rehanpunjwani

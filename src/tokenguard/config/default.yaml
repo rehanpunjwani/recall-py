@@ -1,0 +1,33 @@
+# Shipped default config (editable installs also use repo ../config/default.yaml when present).
+
+ollama:
+  base_url: "http://127.0.0.1:11434"
+  embed_model: "nomic-embed-text"
+  chat_model: "llama3.2"
+  timeout_seconds: 120
+
+storage:
+  db_path: "~/.local/share/tokenguard/tokenguard.db"
+
+limits:
+  max_local_answer_tokens: 512
+  max_chunks_for_prompt: 8
+  chunk_size_chars: 1200
+  chunk_overlap_chars: 150
+
+policy:
+  always_escalate_keywords: []
+  redact_patterns:
+    - '(?i)(api[_-]?key|secret|token|password)\\s*[:=]\\s*[^\\s]+'
+
+proxy:
+  enabled: false
+  try_local_first: false
+  listen_host: "127.0.0.1"
+  listen_port: 8765
+  upstream_base_url: ""
+  upstream_api_key_env: "OPENAI_API_KEY"
+
+api:
+  listen_host: "127.0.0.1"
+  listen_port: 8766

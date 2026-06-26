@@ -1,0 +1,73 @@
+site_name: TokenGuard
+site_description: Local-first conversation cache, RAG, and routing to reduce cloud LLM spend.
+site_url: https://rehanpunjwani.github.io/TokenGuard
+repo_url: https://github.com/rehanpunjwani/TokenGuard
+repo_name: rehanpunjwani/TokenGuard
+edit_uri: blob/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  icon:
+    logo: material/shield-check
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/rehanpunjwani/TokenGuard
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+            show_root_heading: true
+            show_category_heading: true
+            docstring_style: google
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - CLI Reference: cli.md
+  - Library API: library.md
+  - MCP Tools: mcp-tools.md
+  - Configuration: configuration.md
+  - Architecture: architecture.md
+  - Development: development.md

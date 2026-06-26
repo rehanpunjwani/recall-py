@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "tokenguard": {
+      "command": "bash",
+      "args": ["scripts/mcp-stdio.sh"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "TOKENGUARD_WORKSPACE": "${workspaceFolder}"
+      }
+    }
+  }
+}

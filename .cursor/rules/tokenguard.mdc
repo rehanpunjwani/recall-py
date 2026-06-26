@@ -1,0 +1,24 @@
+---
+description: Always route user questions through TokenGuard MCP before answering
+alwaysApply: true
+---
+
+# TokenGuard (required on every user message)
+
+TokenGuard provides **retrieved project context** (`context_pack`), not a replacement for your reasoning.
+
+Before answering any user question in this project:
+
+1. Call MCP **`tokenguard_handle_query`** with:
+   - `query` = the user's latest message (verbatim)
+   - `workspace_fingerprint` = workspace root when known (hooks inject `thread_id` — reuse it)
+2. Read **`context_pack.formatted`** and **`context_pack.citations`** from the response.
+3. **Ground your answer in citations** when `top_score >= 0.5`. Still read source files for code changes.
+4. For **complex / multi-step** work, call **`tokenguard_escalate_pack`** with the same `thread_id` before deep reasoning.
+5. After your final reply, call **`tokenguard_ingest_turn`** with `role=assistant`, your reply text, and the same `thread_id`.
+
+The local **`draft`** field is an optional hint only — **prefer `context_pack` over `draft`**.
+
+If context is empty, run **`tokenguard_index`** (or `tokenguard index` in terminal) once for this repo.
+
+Do not skip TokenGuard — hooks may already inject context; MCP keeps memory and metrics in sync.

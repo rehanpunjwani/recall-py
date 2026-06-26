@@ -1,0 +1,41 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+*.pyc
+
+# Virtual environments
+.venv
+env/
+venv/
+
+# Environment / secrets
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Project-specific
+*.db
+*.sqlite
+.sqlite3
+tokenguard.db
+
+# Docker
+.docker/
+
+# Documentation
+site/

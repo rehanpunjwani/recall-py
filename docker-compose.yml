@@ -1,0 +1,31 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list >/dev/null 2>&1 || exit 1"]
+      interval: 5s
+      timeout: 30s
+      retries: 30
+      start_period: 15s
+
+  tokenguard:
+    build: .
+    ports:
+      - "8766:8766"
+    environment:
+      TOKENGUARD_OLLAMA_BASE_URL: http://ollama:11434
+      TOKENGUARD_DB_PATH: /data/tokenguard.db
+      TOKENGUARD_API_LISTEN_HOST: 0.0.0.0
+    volumes:
+      - tokenguard_data:/data
+    depends_on:
+      ollama:
+        condition: service_healthy
+
+volumes:
+  ollama_data:
+  tokenguard_data:

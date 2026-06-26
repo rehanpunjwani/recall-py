@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeSubmitPrompt": [
+      {
+        "command": ".cursor/hooks/tokenguard-before-prompt.sh"
+      }
+    ],
+    "afterAgentResponse": [
+      {
+        "command": ".cursor/hooks/tokenguard-after-response.sh"
+      }
+    ]
+  }
+}
