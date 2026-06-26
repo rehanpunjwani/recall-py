@@ -6,8 +6,8 @@
   <a href="https://pypi.org/project/recall-py/"><img src="https://img.shields.io/pypi/v/recall-py?style=flat&label=PyPI" alt="PyPI" /></a>
   <a href="https://pypi.org/project/recall-py/"><img src="https://img.shields.io/pypi/pyversions/recall-py?style=flat&label=Python" alt="Python versions" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="License" /></a>
-  <a href="https://github.com/rehanpunjwani/TokenGuard/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/rehanpunjwani/TokenGuard/ci.yml?style=flat&label=CI" alt="CI" /></a>
-  <a href="https://rehanpunjwani.github.io/TokenGuard"><img src="https://img.shields.io/badge/docs-mkdocs-4F46E5?style=flat" alt="Docs" /></a>
+  <a href="https://github.com/rehanpunjwani/recall-py/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/rehanpunjwani/recall-py/ci.yml?style=flat&label=CI" alt="CI" /></a>
+  <a href="https://rehanpunjwani.github.io/recall-py"><img src="https://img.shields.io/badge/docs-mkdocs-4F46E5?style=flat" alt="Docs" /></a>
 </p>
 
 ---
@@ -75,11 +75,11 @@ await ingest_turn(
 
 ## Documentation
 
-Full documentation is available at **[rehanpunjwani.github.io/TokenGuard](https://rehanpunjwani.github.io/TokenGuard/)**.
+Full documentation is available at **[rehanpunjwani.github.io/recall-py](https://rehanpunjwani.github.io/recall-py/)**.
 
 ## Installation options
 
-See the [Getting Started guide](https://rehanpunjwani.github.io/TokenGuard/getting-started/) for pipx, uv, and source installs.
+See the [Getting Started guide](https://rehanpunjwani.github.io/recall-py/getting-started/) for pipx, uv, and source installs.
 
 ## Requirements
 
@@ -90,7 +90,7 @@ See the [Getting Started guide](https://rehanpunjwani.github.io/TokenGuard/getti
 
 RecallPy stores every user and assistant message in SQLite, chunks them, and embeds each chunk via Ollama. On each query, it retrieves the most semantically relevant chunks and optionally drafts a local answer. When the local draft is too uncertain, it signals escalation — you paste the context pack into your cloud model instead. All token operations are tracked for savings reporting.
 
-[Read the architecture docs](https://rehanpunjwani.github.io/TokenGuard/architecture/)
+[Read the architecture docs](https://rehanpunjwani.github.io/recall-py/architecture/)
 
 ## Docker
 
@@ -102,7 +102,7 @@ Starts RecallPy + Ollama with a single command. See [docker-compose.yml](docker-
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines and the [Development guide](https://rehanpunjwani.github.io/TokenGuard/development/) for technical setup.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines and the [Development guide](https://rehanpunjwani.github.io/recall-py/development/) for technical setup.
 
 ## License
 

@@ -4,7 +4,7 @@ Thanks for your interest! RecallPy is an open-source project and we welcome cont
 
 ## Ways to contribute
 
-- **Report a bug** — open a [GitHub issue](https://github.com/rehanpunjwani/TokenGuard/issues) with steps to reproduce.
+- **Report a bug** — open a [GitHub issue](https://github.com/rehanpunjwani/recall-py/issues) with steps to reproduce.
 - **Suggest a feature** — describe what you're trying to solve and how you envision it working.
 - **Submit a PR** — see [Development guide](docs/development.md) for setup, testing, and code style.
 - **Improve docs** — the documentation site lives under `docs/` and uses mkdocs-material.
@@ -30,7 +30,7 @@ Use conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, etc. 
 
 ## Questions?
 
-Open a [Discussion](https://github.com/rehanpunjwani/TokenGuard/discussions) or ping in the issue tracker.
+Open a [Discussion](https://github.com/rehanpunjwani/recall-py/discussions) or ping in the issue tracker.
 
 ## License
 
